@@ -42,6 +42,11 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/:pathMatch(.*)',
+    name: 'bad-not-found',
+    component: () => import(/* webpackChunkName: "home" */ '@views/home.vue'),
+  },
 ]
 
 export default routes
