@@ -6,6 +6,7 @@ This template should help you quickly create a Vue 3 project based on Vite, usin
 ## different with vue2
 
 
+reactive obj cann't use object deconstruct,because the proxy will lose effect.
 
 Ref toRefs:
 
