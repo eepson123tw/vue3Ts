@@ -43,6 +43,7 @@
       Edit
       <code>components/HelloWorld.vue</code> to test hot module replacement.
     </li>
+    <p @click="sayHello">Emits</p>
   </ul>
 </template>
 
@@ -52,10 +53,15 @@ import { storeToRefs } from 'pinia'
 import { useMessageStore } from '@/stores'
 
 defineProps<{ msg: string }>()
-
+const emit = defineEmits(['wow'])
 const count = ref<number>(0)
 const store = useMessageStore()
 const { message } = storeToRefs(store)
+
+const sayHello = () => {
+  console.log('child emit')
+  emit('wow')
+}
 </script>
 
 <style lang="less" scoped>
