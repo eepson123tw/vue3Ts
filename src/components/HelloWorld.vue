@@ -44,6 +44,10 @@
       <code>components/HelloWorld.vue</code> to test hot module replacement.
     </li>
     <p @click="sayHello">Emits</p>
+    <div>
+      <p>v-model ={{ inputText }}</p>
+      <input type="text" name="" id="" v-model="inputText" />
+    </div>
   </ul>
 </template>
 
@@ -55,6 +59,8 @@ import { useMessageStore } from '@/stores'
 defineProps<{ msg: string }>()
 const emit = defineEmits(['wow'])
 const count = ref<number>(0)
+const inputText = ref<string>('')
+
 const store = useMessageStore()
 const { message } = storeToRefs(store)
 
