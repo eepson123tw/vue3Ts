@@ -54,14 +54,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useMessageStore } from '@/stores'
+import { usePinia } from '@/stores'
 
 defineProps<{ msg: string }>()
 const emit = defineEmits(['wow'])
 const count = ref<number>(0)
 const inputText = ref<string>('')
 
-const store = useMessageStore()
+const store = usePinia()
 const { message } = storeToRefs(store)
 
 const sayHello = () => {
