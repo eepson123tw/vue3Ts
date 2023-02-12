@@ -6,7 +6,4 @@ import router from '@/router'
 // 全局样式
 import '@less/global.less'
 
-createApp(App)
-  .use(createPinia()) 
-  .use(router)
-  .mount('#app')
+createApp(App).use(createPinia()).use(router).mount('#app')

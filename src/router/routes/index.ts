@@ -20,27 +20,20 @@ const routes: RouteRecordRaw[] = [
    * 子路由示例
    */
   {
-    path: '/foo',
-    name: 'foo',
-    component: () =>
-      import(/* webpackChunkName: "foo" */ '@cp/TransferStation.vue'),
+    path: '/ball',
+    name: 'ball',
+    component: () => import(/* webpackChunkName: "foo" */ '@cp/Ball.vue'),
     meta: {
-      title: 'Foo',
+      title: 'Ball',
     },
-    redirect: {
-      name: 'bar',
+  },
+  {
+    path: '/rotateBall',
+    name: 'rotateBall',
+    component: () => import(/* webpackChunkName: "foo" */ '@cp/RotateBall.vue'),
+    meta: {
+      title: 'RotateBall',
     },
-    children: [
-      {
-        path: 'bar',
-        name: 'bar',
-        component: () =>
-          import(/* webpackChunkName: "bar" */ '@views/foo/bar.vue'),
-        meta: {
-          title: 'Bar',
-        },
-      },
-    ],
   },
   {
     path: '/:pathMatch(.*)',
