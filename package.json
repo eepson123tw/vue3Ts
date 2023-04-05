@@ -16,7 +16,9 @@
     "up": "npx npm-check-updates -u"
   },
   "dependencies": {
+    "dat.gui": "^0.7.9",
     "gsap": "^3.11.4",
+    "lil-gui": "^0.18.0",
     "pinia": "^2.0.14",
     "three": "^0.148.0",
     "vue": "^3.2.37",

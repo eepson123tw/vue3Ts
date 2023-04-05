@@ -6,11 +6,25 @@
 </template>
 <script setup lang="ts">
 import * as THREE from 'three'
+import GUI from 'lil-gui'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { onMounted } from 'vue'
 onMounted(() => {
   //scene
   const scene = new THREE.Scene()
+  const gui = new GUI()
+
+  const myObject = {
+    count: 1,
+    wireframe: true,
+  }
+
+  gui.add(myObject, 'count', 0, 300)
+  gui.add(myObject, 'wireframe')
+  const colorFormats = {
+    string: '#ffffff',
+  }
+
   //Create  Box
   // const geometry = new THREE.BoxGeometry(1, 1, 1)
   // const material = new THREE.MeshBasicMaterial({ color: 'red' })
@@ -20,11 +34,9 @@ onMounted(() => {
   // scene.add(cube)
   const geometry = new THREE.BufferGeometry()
 
-  const count = 300
+  const positionArray = new Float32Array(myObject.count * 3 * 3)
 
-  const positionArray = new Float32Array(count * 3 * 3)
-
-  for (let i = 0; i < count * 3 * 3; i++) {
+  for (let i = 0; i < myObject.count * 3 * 3; i++) {
     positionArray[i] = Math.random()
   }
 
@@ -35,8 +47,16 @@ onMounted(() => {
   const group = new THREE.Group()
   const cube1 = new THREE.Mesh(
     geometry,
-    new THREE.MeshBasicMaterial({ color: 'red', wireframe: true })
+    new THREE.MeshBasicMaterial({
+      color: colorFormats.string,
+      wireframe: myObject.wireframe,
+    })
   )
+
+  gui.addColor(colorFormats, 'string').onChange(() => {
+    tick()
+  })
+
   // const cube2 = new THREE.Mesh(
   //   new THREE.BoxGeometry(1, 1, 1),
   //   new THREE.MeshBasicMaterial({ color: 'blue' })
