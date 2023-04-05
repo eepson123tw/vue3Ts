@@ -28,6 +28,14 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/3Dtext',
+    name: '3Dtext',
+    component: () => import(/* webpackChunkName: "foo" */ '@cp/3Dtext.vue'),
+    meta: {
+      title: '3Dtext',
+    },
+  },
+  {
     path: '/rotateBall',
     name: 'rotateBall',
     component: () => import(/* webpackChunkName: "foo" */ '@cp/RotateBall.vue'),
