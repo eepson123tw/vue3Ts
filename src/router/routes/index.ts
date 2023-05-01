@@ -61,6 +61,15 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/RenderModal',
+    name: 'RenderModal',
+    component: () =>
+      import(/* webpackChunkName: "foo" */ '@cp/RenderModal.vue'),
+    meta: {
+      title: 'RenderModal',
+    },
+  },
+  {
     path: '/:pathMatch(.*)',
     name: 'bad-not-found',
     component: () => import(/* webpackChunkName: "home" */ '@views/home.vue'),
