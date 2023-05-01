@@ -45,6 +45,22 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/raycaster',
+    name: 'raycaster',
+    component: () => import(/* webpackChunkName: "foo" */ '@cp/Raycaster.vue'),
+    meta: {
+      title: 'Raycaster',
+    },
+  },
+  {
+    path: '/Modal',
+    name: 'Modal',
+    component: () => import(/* webpackChunkName: "foo" */ '@cp/Modal.vue'),
+    meta: {
+      title: 'Modal',
+    },
+  },
+  {
     path: '/:pathMatch(.*)',
     name: 'bad-not-found',
     component: () => import(/* webpackChunkName: "home" */ '@views/home.vue'),

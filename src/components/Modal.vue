@@ -18,18 +18,21 @@ onMounted(() => {
   /**
    * modal
    */
+  // const dracoLoader = new DRACOLoader()
+  // dracoLoader.setDecoderPath('/models/draco/')
   const dracoLoader = new DRACOLoader()
-  dracoLoader.setDecoderPath('/models/draco/')
+  dracoLoader.setDecoderPath('/draco/')
   const gltfLoader = new GLTFLoader()
   gltfLoader.setDRACOLoader(dracoLoader)
-  let mixer: any = null
+
+  // let mixer: any = null
   gltfLoader.load(
-    '/models/FOX/glTF/FOX.gltf',
+    '/models/hambuger.glb',
     (gltf) => {
-      mixer = new THREE.AnimationMixer(gltf.scene)
-      const action = mixer.clipAction(gltf.animations[2])
-      action.play()
-      gltf.scene.scale.set(0.025, 0.025, 0.025)
+      // mixer = new THREE.AnimationMixer(gltf.scene)
+      // const action = mixer.clipAction(gltf.animations[2])
+      // action.play()
+      // gltf.scene.scale.set(0.025, 0.025, 0.025)
       scene.add(gltf.scene)
       // let x = [...gltf.scene.children]
       // x.forEach((item, idx) => {
@@ -92,18 +95,18 @@ onMounted(() => {
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setPixelRatio(2)
   renderer.render(scene, camera)
-  const clock = new THREE.Clock()
-  let prev = 0
+  // const clock = new THREE.Clock()
+  // let prev = 0
 
   function animate() {
-    const elapsedTime = clock.getElapsedTime()
-    const deltaTime = elapsedTime - prev
-    prev = elapsedTime
+    // const elapsedTime = clock.getElapsedTime()
+    // const deltaTime = elapsedTime - prev
+    // prev = elapsedTime
     requestAnimationFrame(animate)
     // mesh.rotation.x += 0.01
     // light.position.y += 0.01
     // light.position.z += 0.01
-    mixer.update(deltaTime)
+    // mixer.update(deltaTime)
     controls.update()
     renderer.render(scene, camera)
   }
