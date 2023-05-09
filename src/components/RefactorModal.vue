@@ -17,7 +17,7 @@ onMounted(() => {
     '#bg'
   ) as HTMLCanvasElement
   const ex = experience(canvas, window)
-  console.log(ex)
+  console.log(ex, 123)
   // //scene
   // const scene = new THREE.Scene()
   // /**
