@@ -70,6 +70,15 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/RefactorModal',
+    name: 'RefactorModal',
+    component: () =>
+      import(/* webpackChunkName: "foo" */ '@cp/RefactorModal.vue'),
+    meta: {
+      title: 'RefactorModal',
+    },
+  },
+  {
     path: '/:pathMatch(.*)',
     name: 'bad-not-found',
     component: () => import(/* webpackChunkName: "home" */ '@views/home.vue'),
