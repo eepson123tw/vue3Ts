@@ -16,8 +16,8 @@ onMounted(() => {
   const canvas: HTMLCanvasElement = document.querySelector(
     '#bg'
   ) as HTMLCanvasElement
-  const ex = experience(canvas, window)
-  console.log(ex, 123)
+  experience(canvas, window)
+
   // //scene
   // const scene = new THREE.Scene()
   // /**

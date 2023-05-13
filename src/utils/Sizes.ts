@@ -16,5 +16,5 @@ export const sizes: SizesType = (canvas, window, fn) => {
     pixelRAtio = Math.min(window.devicePixelRatio, 2)
     fn({ width, height, pixelRAtio })
   })
-  return { width, height, pixelRAtio, event }
+  return { width, height, pixelRAtio }
 }
