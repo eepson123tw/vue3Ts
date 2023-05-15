@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 interface Items {
   [key: string | number]: any
 }
-const resources: (ary: any, loadedFn: (...res: any) => any) => void = (
+const resources: (ary: any, loadedFn: (...res: any) => any) => Promise<any> = (
   ary,
   loadedFn
 ) => {
@@ -38,14 +38,19 @@ const resources: (ary: any, loadedFn: (...res: any) => any) => void = (
       })
     }
   }
-
   const sourceLoaded: (...res: any) => void = (source, file) => {
     items[source.name] = file
     loaded++
     if (loaded === toLoad) {
-      loadedFn({ sources })
+      loadedFn({ sources, items })
     }
   }
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(items)
+    }, 1000)
+  })
 }
 
 export default resources
